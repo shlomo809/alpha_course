@@ -1,5 +1,4 @@
 from Costumer import costumer
-import Prodact
 from Register import register
 import json
 
@@ -11,9 +10,10 @@ def main():
     print("hello there lets crate you a new account\n")
     open_register = 't'
     while(store_open):
-        name = input("plz enter your name\n")
+        name = input("please enter your name\n")
         end_of_purchase = True
         new_costumer = costumer(name, shopping, 0)
+        
         costumers[name] = new_costumer.costumer_shopping_list
         if(open_register == 't'):
             new_register = register()
@@ -26,6 +26,8 @@ def main():
                 new_costumer.remove_product()
             elif (option == '3'):
                 end_of_purchase = False
+            else:
+                print("your inpute is invaild")    
         for key in shopping:
             print(shopping[key]["price"])
             with open("./item/"+key+".json", "w")as my_file:
