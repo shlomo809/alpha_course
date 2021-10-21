@@ -12,12 +12,16 @@ def main():
     while(store_open):
         name = input("please enter your name\n")
         end_of_purchase = True
-        new_costumer = costumer(name, shopping, 0)
-        
-        costumers[name] = new_costumer.costumer_shopping_list
         if(open_register == 't'):
             new_register = register()
-            costumers = {}
+            costumers={}
+        if(name not in costumers):
+            shopping = {}
+            new_costumer = costumer(name, shopping, 0)
+            costumers[name] = new_costumer.costumer_shopping_list
+            
+        
+            
         while(end_of_purchase):
             option = (input("add 1 remove 2 or 3 for checkout"))
             if(option == '1'):
@@ -35,16 +39,16 @@ def main():
 
         new_register.Check_out_costumer(
             new_costumer.costumer_shopping_list, new_costumer.costumer_total_buy)
-        costumers[name] = new_costumer.costumer_shopping_list
-        shopping = {}
+        
+        
         new_register.Print_summery(costumers)
         store_open = (
-            input("dose the store empty?(0 for yes, anything else for no)"))
+            input("dose the store empty?(0 for yes, anything else for no)\n"))
         if(store_open == '0'):
             store_open = False
         else:
             print("hello there lets crate you a new account\n")
-            open_register = input("do you want to go to another register or stay in this one?(t for yes n for no)")
+            open_register = input("do you want to go to another register or stay in this one?(true for yes n for no)\n")
 
 
 if(__name__ == "__main__"):
