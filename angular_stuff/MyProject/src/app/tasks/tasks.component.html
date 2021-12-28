@@ -1,0 +1,12 @@
+<form #task_to_do novalidate novalidate>
+    <input id="male" type="radio" class="custom-control-input" value="very importent" name="task" ngModel required>
+    <label class="custom-control-label" for="male"> very importent</label>
+    <input id="female" type="radio" class="custom-control-input" value="need to do" name="task" ngModel required>
+    <label class="custom-control-label" for="female">need to do</label>
+    <input id="free" type="radio" class="custom-control-input" value="free time" name="task" ngModel required>
+    <label class="custom-control-label" for="free">free time</label>
+
+</form>
+<input #box (keyup.enter)="UserInput(box, task_to_do['task'].value)">
+
+<button (click)="UserInput(box ,task_to_do['task'].value)">Click</button>

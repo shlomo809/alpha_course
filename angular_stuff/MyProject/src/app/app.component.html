@@ -1,4 +1,4 @@
 <h1>{{title}}</h1>
-<h2>{{message}}</h2>
+<app-tasks (addNewTask)="addTask($event)"></app-tasks>
 
-<button (click)="Show()">Click</button>
+<app-change-task [item]="items"></app-change-task>

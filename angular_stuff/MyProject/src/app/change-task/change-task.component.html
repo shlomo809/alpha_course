@@ -1,0 +1,17 @@
+<ul>
+    <li *ngFor="let task of  item" [class.selected]="task === SelectedTask" (click)="onSelect(task)">
+        {{task.task_name}} - {{task.task_priority}}
+
+
+
+    </li>
+</ul>
+
+<div *ngIf="SelectedTask">
+
+    <h4>{{SelectedTask.task_name}} </h4>
+    <label for="hero-name">Task name: </label>
+    <input #del id="hero-name" (keyup.enter)="UpdateTask(SelectedTask)" [(ngModel)]="SelectedTask.task_name"
+        placeholder="name">
+        <button  (click)="deleteTask(del,item,SelectedTask)">delete</button>
+</div>
